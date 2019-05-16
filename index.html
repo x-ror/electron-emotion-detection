@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Emotional detect</title>
+    <script src="face-api.js"></script>
+</head>
+
+<body>
+
+    <div class="video-container">
+        <video onloadedmetadata="onPlay(this)" id="inputVideo" autoplay muted></video>
+        <canvas id="overlay" />
+    </div>
+
+</body>
+<style>
+    .video-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    #overlay {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+</style>
+
+<script src="FaceEmotionalDetection.js"></script>
+<script src="renderer.js"></script>
+
+</html>
