@@ -9,7 +9,7 @@ function createWindow() {
     win = new BrowserWindow({
         width: 800, height: 600
     })
-
+    win.maximize()
     // и загружаем index.html приложения.
     win.loadFile('index.html')
 

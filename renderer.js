@@ -1,7 +1,7 @@
 const faceConfig = new FaceEmotionalDetection({ faceDetector: 'tiny_face_detector' });
 const videoEl = document.querySelector('#inputVideo')
 const canvas = document.querySelector('#overlay')
-
+const container = document.querySelector('.video-container')
 async function onPlay() {
 
     if (videoEl.paused || videoEl.ended || !faceConfig.isLoaded)
@@ -37,6 +37,16 @@ async function run() {
     })
     videoEl.srcObject = stream
     videoEl.play();
+    resizeCanvas()
     onPlay()
 }
 run()
+
+window.addEventListener('resize', resizeCanvas, false);
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    container.height = window.innerHeight;
+    container.width = window.innerWidth;
+}
