@@ -4,12 +4,16 @@ const faceDetectors = {
   },
   TINY_FACE_DETECTOR: {
     inputSize: 512,
-    scoreThreshold: 0.5,
+    scoreThreshold: 0.4,
   },
   MTCNN: {
-    minFaceSize: 20
+    minFaceSize: 30,
+    maxNumScales: 10,
+    scaleFactor: 0.709,
+    scoreThresholds: [0.6, 0.7, 0.7],
   }
 }
+
 const MODEL_URL = './weights';
 class FaceEmotionalDetection {
   constructor({ faceDetector }) {
@@ -44,8 +48,9 @@ class FaceEmotionalDetection {
   }
 
   async loadModels() {
-    await faceapi.loadFaceLandmarkModel(MODEL_URL)
-    await faceapi.loadFaceRecognitionModel(MODEL_URL)
+    // await faceapi.loadFaceLandmarkModel(MODEL_URL)
+    // await faceapi.loadFaceRecognitionModel(MODEL_URL)
     await faceapi.loadFaceExpressionModel(MODEL_URL)
+    await faceapi.loadAgeGenderModel(MODEL_URL);
   }
 }
