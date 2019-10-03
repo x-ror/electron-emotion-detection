@@ -29,9 +29,6 @@ async function onPlay() {
         const dims = faceapi.matchDimensions(canvas, videoEl, true)
         const resizedResults = faceapi.resizeResults(result, dims)
 
-        // faceapi.draw.drawFaceExpressions(canvas, resizedResults, minConfidence)
-        // faceapi.draw.drawContour(canvas, resizedResults, minConfidence)
-        // faceapi.draw.DrawFaceLandmarks(canvas, resizedResults, minConfidence)
         resizedResults.forEach((bestMatch, i) => {
             const {
                 expressions,
